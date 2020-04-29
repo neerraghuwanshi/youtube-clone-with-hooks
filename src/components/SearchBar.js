@@ -1,18 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {withRouter} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+
+import {SearchData} from '../reducers/actions'
 
 
-class SearchBar extends React.Component{
-    state={searchTerm:""}
+const SearchBar = (props) => {
 
-    render(){
-        const {searchTerm} = this.state;
-        const {handleClick} = this.props
+    const [searchTerm, setSearchTerm] = useState('')
+
+    const dispatch = useDispatch()
+
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
+        localStorage.setItem('searchTerm',searchTerm)
+        dispatch(SearchData(searchTerm))
+        props.history.push('/search')
+        }
+
         return(
-            <form style={{textAlign:'center'}} onSubmit={(event)=>{event.preventDefault();
-            handleClick(searchTerm)}}>
-                <input style={{width:'90%', textAlign:'center'}} onChange={(event)=>this.setState({searchTerm:event.target.value})} value={searchTerm} placeholder="Search..."/>
+            <form onSubmit={onSubmitHandler}>
+                <input onChange={event=>setSearchTerm(event.target.value)} value={searchTerm} placeholder="Search"/>
+                <div onClick={onSubmitHandler}>
+                    <i className="fa fa-search" aria-hidden="true" />
+                </div>
             </form>
         );
-    }
 }
-export default SearchBar
+export default withRouter(SearchBar)

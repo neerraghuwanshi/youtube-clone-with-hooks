@@ -4,12 +4,15 @@
     padding:10px;
 }
 
-
 iframe{
     width:100%;
-    height:70%;
+    height:80vh;
 }
 
 img{
     margin: auto 10px;
+}
+
+img:hover{
+    cursor:pointer;
 }

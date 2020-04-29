@@ -1,9 +1,8 @@
 import React from 'react'
 
-class Iframe extends React.Component{
+const Iframe = (props) => {
     
-    render(){
-        const {title, src, description} = this.props
+        const {title, src, description} = props
         return(
             <div>
             <iframe src={`https://youtube.com/embed/${src}`} title={title}/>
@@ -11,6 +10,5 @@ class Iframe extends React.Component{
             <p>{description}</p>
             </div>
         );
-    }
 }
 export default Iframe

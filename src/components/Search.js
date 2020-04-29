@@ -1,11 +1,18 @@
 import React from 'react'
-import '../css/Search.css'
+import { useSelector } from 'react-redux'
 
-class Search extends React.Component{
- 
-    render(){
-        return(<div>Search</div>)
-    }
+import '../css/videoContainer.css'
+import VideoContainer from './VideoContainer'
+
+
+const Search = () =>{
+
+        const searchData = useSelector(state=>state.searchData);
+        console.log(searchData)
+
+        return(
+            <VideoContainer query={searchData}/>    
+        )
 } 
 
 export default Search

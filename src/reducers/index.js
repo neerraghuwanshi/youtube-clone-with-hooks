@@ -1,15 +1,29 @@
-import {combineReducers} from  'redux'
+import {createStore,applyMiddleware} from 'redux'
+import {composeWithDevTools} from 'redux-devtools-extension'
+import thunk from 'redux-thunk'
 
-import {VideosErrorReducer} from './VideosErrorReducer'
-import {VideosPendingReducer} from './VideosPendingReducer'
-import {VideosDataReducer} from './VideosDataReducer'
+export const initialState = {searchData:localStorage.getItem('searchTerm'), error:{}}
 
-const reducer = combineReducers({
-    VideosErrorReducer:VideosErrorReducer,
-    VideosPendingReducer:VideosPendingReducer,
-    VideosDataReducer:VideosDataReducer
-})
+export const SEARCHDATA = "SEARCHDATA"
+export const ERROR = "ERROR"
 
+export const reducer = (state, action) => {
+    switch(action.type){
+        case SEARCHDATA:
+            return{
+                ...state,
+                searchData: action.searchData
+            };
+        case ERROR:
+            return {
+                ...state,
+                error:action.error
+            };
+        default:
+            return{
+                state
+            }
+    }
+}
 
-
-export default reducer
+export const store = createStore(reducer, initialState,composeWithDevTools(applyMiddleware(thunk)))
