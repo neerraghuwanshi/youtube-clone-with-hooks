@@ -1,65 +1,104 @@
 .maindiv{
     background-color: white;
-    padding:30px;
+    padding: 10px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items:center;
-
     box-sizing: border-box;
-    height:8vh;
-    min-height:56px;
-    font-size: large;
+    min-height:50px;
+    height:10vh;
 }
 
-.link{
-    text-decoration: none;
-    color:black;
-    margin:15px 30px 15px 40px;
-}
-
-
-.link:hover{
-    color:blue;
-}
-
-div > i {
-    cursor: pointer;
-}
-
-form {
-    text-align:center;
-    display:flex;
-
-    justify-content:center;
-    align-content:center;
-    width:720px;  
-}
-
-input{
-    width:90%;
-    padding: 2px 6px;
-    text-align:center;
-    font-size:medium;
-    border-width:1px 1px 1px 1px;
-    border-style:solid;
-    border-color:grey;
-}
-
-form div{
-    width:10%;
+.iconContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:rgb(240, 240, 240);
-    border-width:1px 1px 1px 0px;
+    background-color: lightgray;
+    height:3vh;
+    min-height:30px;
+    box-sizing: border-box;
     border-style:solid;
     border-color:grey;
+    border-width:1px 1px 1px 0;
+}
+
+input{
+    padding: 2px 6px;
+    text-align:center;
+    font-size:medium;
+    border-style:solid;
+    border-color:grey;
+    border-width:1px 1px 1px 1px;
+    box-sizing: border-box;
+    height:3vh;
+    min-height:30px;
+}
+
+input:focus{
+    outline: none;
+    border-color: black !important;
+}
+
+input:hover{
+    border-color: black !important;
+}
+
+.iconContainer:hover{
+    border-color: black;
+    cursor: pointer;
 }
 
 
+@media (min-width: 100px) {
+    input {
+        width: calc(100vw - 60px);
+    }
+    .iconContainer{
+        width: 20px;
+    }
+}
 
+@media (min-width: 200px) {
+    input {
+        width: calc(100vw - 70px);
+    }
+    .iconContainer{
+        width: 30px;
+    }
+}
 
+@media (min-width: 400px) {
+    input {
+        width: calc(100vw - 90px);
+    }
+    .iconContainer{
+        width:50px;
+    }
+}
 
+@media (min-width: 768px) {
+    input {
+        width: calc(100vw - 90px);
+    }
+    .iconContainer{
+        width:50px;
+    }
+}
 
+@media (min-width: 992px) {
+    input {
+        width: 882px;
+    }
+    .iconContainer{
+        width:70px
+    }
+}
 
-
+@media (min-width: 1200px) {
+    input {
+        width: 1060px; 
+    }
+    .iconContainer{
+        width:100px
+    }
+}

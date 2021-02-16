@@ -1,0 +1,53 @@
+@keyframes rotate{
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+
+.loaderContainer{
+    width: 100vw;
+    margin: 10vh 0 10vh 0;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.loader{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    border: 5px solid rgb(190, 190, 190);
+    animation-name:rotate;
+    animation-duration: .75s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.loader::before{
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    content: '';
+    display: block;
+    box-sizing: border-box;
+    width: 25px;
+    height: 25px;
+    border-radius: 37.5px 0 0 0;
+    border-width: 5px 0 0 5px;
+    border-style: solid;
+    border-color: white;
+}
+
+
+@media (max-height:400px){
+    .loaderContainer{
+        min-height: calc(100vh - 80px);
+        margin: 60px 0 20px 0;
+    }
+}

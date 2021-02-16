@@ -1,14 +1,30 @@
 import React from 'react'
 import VideoItem from './VideoItem'
 
+import '../css/VideoList.css'
+
+
 const VideoList = (props) =>{
-        const {items, onClickHandler} = props
-        const videoList = items.map(
-            item => <VideoItem src={item.snippet.thumbnails.medium.url} onClickHandler={onClickHandler} key={item.snippet.title} item={item} alt={item.snippet.title}/>
-            )
+
+    const {videos, rearrangeSelected} = props
+
+    const videoList = videos.map((video, index) => (
+        <VideoItem 
+            video={video}
+            key={video.snippet.title} 
+            index={index}
+            rearrangeSelected={rearrangeSelected}/> 
+    ))
             
-    return(<div>{videoList}</div>)
+    return(
+        <div className='videoList'>
+            <ul>
+                {videoList}
+            </ul>
+        </div>
+    )
 
 }
     
+
 export default VideoList

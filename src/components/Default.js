@@ -1,10 +1,9 @@
 import React from 'react'
+import Centre from './Centre'
 
 const Default = () => {
     return (
-        <div>
-            Default
-        </div>
+        <Centre text={'Page Not Found'}/>
     )
 }
 
